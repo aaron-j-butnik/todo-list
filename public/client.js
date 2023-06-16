@@ -1,6 +1,6 @@
 const deleteTodoButton = document.querySelectorAll("#delete-todo");
 const markCompleted = document.querySelectorAll(".todo-item span");
-const markUncompleted = document.querySelectorAll(".todo-item span.completed");
+const markUncompleted = document.querySelectorAll(".completed");
 
 deleteTodoButton.forEach((element) => {
   element.addEventListener("click", deleteTodo);

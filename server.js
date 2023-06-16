@@ -25,7 +25,11 @@ app.get("/", (req, res) => {
     .find()
     .toArray()
     .then((data) => {
-      res.render("index.ejs", { todoItems: data });
+      db.collection("todo-items")
+        .countDocuments({ completed: false })
+        .then((itemsLeft) => {
+          res.render("index.ejs", { todoItems: data, left: itemsLeft });
+        });
     })
     .catch((error) => console.error(error));
 });
