@@ -39,6 +39,15 @@ app.post("/addItem", (req, res) => {
     .catch((error) => console.error(error));
 });
 
+app.delete("/deleteItem", (req, res) => {
+  db.collection("todo-items")
+    .deleteOne({ todoItem: req.body.deleteTodo })
+    .then((result) => {
+      console.log("Todo Item Deleted.");
+      res.json("Todo Item Deleted.");
+    });
+});
+
 app.listen(process.env.PORT || PORT, (err) => {
   if (err) console.log(err);
   console.log(`Server listening on port ${PORT}.`);
