@@ -17,7 +17,11 @@
     <ul>
       <% for(var i = 0; i < todoItems.length; i++) {%>
       <li class="todo-item">
+        <% if (todoItems[i].completed) { %>
+        <span class="completed"><%= todoItems[i].todoItem %></span>
+        <% } else { %>
         <span><%= todoItems[i].todoItem %></span>
+        <% } %>
         <i id="delete-todo" class="fa-solid fa-trash-can"></i>
       </li>
       <% } %>
