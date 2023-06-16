@@ -1,5 +1,3 @@
-const { json } = require("express");
-
 const deleteTodoButton = document.querySelectorAll("#delete-todo");
 const completedTodoClick = document.querySelectorAll(".todo-item span");
 
@@ -32,7 +30,7 @@ async function completedTodo() {
   try {
     const res = await fetch("/completedTodo", {
       method: "put",
-      headers: { "Conetent-Type": "application/json" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ todoItemCompleted: cTodo }),
     });
     const data = await res.json();

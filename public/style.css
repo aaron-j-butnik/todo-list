@@ -2,6 +2,14 @@ h1 {
   color: red;
 }
 
+span {
+  cursor: pointer;
+}
+
+.fa-trash-can {
+  cursor: pointer;
+}
+
 .completed {
   color: grey;
   text-decoration: line-through;

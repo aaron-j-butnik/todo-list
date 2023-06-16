@@ -39,6 +39,22 @@ app.post("/addItem", (req, res) => {
     .catch((error) => console.error(error));
 });
 
+app.put("/completedTodo", (req, res) => {
+  db.collection("todo-items")
+    .updateOne(
+      {
+        todoItem: req.body.todoItemCompleted,
+        completed: false,
+      },
+      { $set: { completed: true } }
+    )
+    .then((result) => {
+      console.log("Todo item completed.");
+      res.json("Todo item completed.");
+    })
+    .catch((error) => console.error(error));
+});
+
 app.delete("/deleteTodo", (req, res) => {
   db.collection("todo-items")
     .deleteOne({ todoItem: req.body.todoItemDelete })
