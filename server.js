@@ -30,6 +30,15 @@ app.get("/", (req, res) => {
     .catch((error) => console.error(error));
 });
 
+app.post("/addItem", (req, res) => {
+  db.collection("todo-items")
+    .insertOne({ todoItem: req.body.addedTodo })
+    .then((result) => {
+      res.redirect("/");
+    })
+    .catch((error) => console.error(error));
+});
+
 app.listen(process.env.PORT || PORT, (err) => {
   if (err) console.log(err);
   console.log(`Server listening on port ${PORT}.`);
