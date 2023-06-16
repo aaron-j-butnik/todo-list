@@ -44,13 +44,27 @@ app.put("/completedTodo", (req, res) => {
     .updateOne(
       {
         todoItem: req.body.todoItemCompleted,
-        completed: false,
       },
       { $set: { completed: true } }
     )
     .then((result) => {
       console.log("Todo item completed.");
       res.json("Todo item completed.");
+    })
+    .catch((error) => console.error(error));
+});
+
+app.put("/uncompletedTodo", (req, res) => {
+  db.collection("todo-items")
+    .updateOne(
+      {
+        todoItem: req.body.todoItemUncompleted,
+      },
+      { $set: { completed: false } }
+    )
+    .then((result) => {
+      console.log("Todo item uncompleted.");
+      res.json("Todo item uncompleted.");
     })
     .catch((error) => console.error(error));
 });
