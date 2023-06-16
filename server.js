@@ -39,7 +39,7 @@ app.post("/addItem", (req, res) => {
     .catch((error) => console.error(error));
 });
 
-app.delete("/deleteItem", (req, res) => {
+app.delete("/deleteTodo", (req, res) => {
   db.collection("todo-items")
     .deleteOne({ todoItem: req.body.todoItemDelete })
     .then((result) => {
