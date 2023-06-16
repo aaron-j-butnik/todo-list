@@ -41,7 +41,7 @@ app.post("/addItem", (req, res) => {
 
 app.delete("/deleteItem", (req, res) => {
   db.collection("todo-items")
-    .deleteOne({ todoItem: req.body.deleteTodo })
+    .deleteOne({ todoItem: req.body.todoItemDelete })
     .then((result) => {
       console.log("Todo Item Deleted.");
       res.json("Todo Item Deleted.");

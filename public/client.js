@@ -7,9 +7,9 @@ deleteTodoButton.forEach((element) => {
 async function deleteTodo() {
   const dTodo = this.parentNode.childNodes[1].innerText;
   try {
-    const res = await fetch("/deleteTodo", {
+    const res = await fetch("/deleteItem", {
       method: "delete",
-      headers: { "Content-Type": "applicaiton/json" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ todoItemDelete: dTodo }),
     });
     const data = await res.json();
