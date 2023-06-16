@@ -10,9 +10,11 @@
     <h1>Todo App</h1>
     <h3>Add todo:</h3>
     <ul>
+      <% for(var i = 0; i < todoItems.length; i++) {%>
       <li class="todo-item">
-        <span></span>
+        <span><%= todoItems[i].todoItem</span>
       </li>
+      <% } %>
     </ul>
     <form action="" method="post">
       <input type="text" />
