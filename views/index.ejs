@@ -12,12 +12,12 @@
     <ul>
       <% for(var i = 0; i < todoItems.length; i++) {%>
       <li class="todo-item">
-        <span><%= todoItems[i].todoItem</span>
+        <span><%= todoItems[i].todoItem %></span>
       </li>
       <% } %>
     </ul>
-    <form action="" method="post">
-      <input type="text" />
+    <form action="/addItem" method="post">
+      <input type="text" name="addTodoInput" />
       <button type="submit">Submit</button>
     </form>
     <script src="/client.js"></script>

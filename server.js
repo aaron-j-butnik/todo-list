@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 
 app.post("/addItem", (req, res) => {
   db.collection("todo-items")
-    .insertOne({ todoItem: req.body.addedTodo })
+    .insertOne({ todoItem: req.body.addTodoInput, completed: false })
     .then((result) => {
       res.redirect("/");
     })
