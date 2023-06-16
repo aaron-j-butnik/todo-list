@@ -21,7 +21,13 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.render("index.ejs");
+  db.collection("todo-items")
+    .find()
+    .toArray()
+    .then((data) => {
+      res.render("index.ejs", { todoItems: data });
+    })
+    .catch((error) => console.error(error));
 });
 
 app.listen(process.env.PORT || PORT, (err) => {
